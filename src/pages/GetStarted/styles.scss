@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.get-started {
+  display: grid;
+  grid-template-rows: 749px 120px;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  &__image-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    align-self: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &--image {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: contain
+    }
+  }
+  &__main-title {
+    @include titleStyle(center, relative, 0, 0, 1, $dark-color, 4.5rem, 1px);
+    line-height: 1;
+    font-weight: $semibold-weight;
+    padding: 0 30px;
+    align-self: center;
+    margin-bottom: 200px
+  }
+  &__button {
+    @include buttonStyle(200px, 70px, 20px, $dark-color, $background-color, 2.4rem);
+    letter-spacing: 1px;
+    align-self: center;
+    justify-self: center;
+    z-index: 2;
+  }
+}

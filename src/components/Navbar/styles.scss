@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+.footer {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  @include flexCenter(row, space-between, center);
+  &__sections {
+    width: 180px;
+    height: 100%;
+    @include flexCenter(row, space-around, center);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 2px -2px 15px 2px rgba(155, 154, 154, 0.1);
+    background-color: $light-color;
+    .button {
+      @include buttonStyle(40px, 40px, 50%, transparent, $dark-color, 3.5rem);
+      &:hover {
+        color: $palet-color-1;
+      }
+    }
+  }
+}
