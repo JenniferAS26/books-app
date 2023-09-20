@@ -1,0 +1,38 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card-search-container {
+  width: 200px;
+  height: 100px;
+  @include flexCenter(row, flex-start, center);
+  &__image-container {
+    width: 70px;
+    height: 70px;
+    &--image {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    width: 130px;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    &--title {
+      font-size: 1.6rem;
+      font-weight: $semibold-weight;
+      letter-spacing: 1px;
+      align-self: end;
+      margin-left: 10px;
+    }
+    &--text {
+      font-size: 1.4rem;
+      font-weight: $medium-weight;
+      margin-left: 10px;
+      color: $greyish-color;
+      align-self: start;
+    }
+  }
+}

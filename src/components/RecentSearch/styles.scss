@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.recent-search-container {
+  width: 100%;
+  height: 100px;
+  &__title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  &__cards-container {
+    @include flexCenter(row, space-between, center);
+    overflow-x: scroll;
+    @include removeScrollBar;
+  }
+}

@@ -1,6 +1,8 @@
 import profilePicture from '../../assets/images/profile-picture.jpg'
 import { LuSearch } from 'react-icons/lu'
+import RecentSearch from '../RecentSearch'
 import './styles.scss'
+import CardSearch from '../CardSearch'
 
 const Home = () => {
   return (
@@ -18,6 +20,12 @@ const Home = () => {
         </button>
         <input className='home__search--input' type='text' placeholder='Search...' />
       </form>
+      <RecentSearch>
+        <CardSearch />
+        <CardSearch />
+        <CardSearch />
+        <CardSearch />
+      </RecentSearch>
     </section>
   )
 }
