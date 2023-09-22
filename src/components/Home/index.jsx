@@ -3,6 +3,8 @@ import { LuSearch } from 'react-icons/lu'
 import RecentSearch from '../RecentSearch'
 import './styles.scss'
 import CardSearch from '../CardSearch'
+import BookGallery from '../BookGallery'
+import CardBook from '../CardBook'
 
 const Home = () => {
   return (
@@ -26,6 +28,16 @@ const Home = () => {
         <CardSearch />
         <CardSearch />
       </RecentSearch>
+      <BookGallery>
+        <CardBook />
+        <CardBook />
+        <CardBook />
+        <CardBook />
+        <CardBook />
+        <CardBook />
+        <CardBook />
+        <CardBook />
+      </BookGallery>
     </section>
   )
 }

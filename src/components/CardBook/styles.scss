@@ -1,0 +1,29 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card-book-container {
+  width: 170px;
+  height: 240px;
+  padding: 9px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background-color: rgba($color: $background-color, $alpha: 0.4);
+  &__image {
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  &__text {
+    color: $greyish-color;
+    font-size: 1.5rem;
+    justify-self: start;
+    padding-left: 10px;
+  }
+  &__title {
+    font-size: 1.8rem;
+    justify-self: start;
+    padding-left: 10px;
+  }
+}

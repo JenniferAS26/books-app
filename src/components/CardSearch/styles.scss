@@ -2,9 +2,12 @@
 @use '../../styles/mixins' as *;
 
 .card-search-container {
-  width: 200px;
-  height: 100px;
+  width: 180px;
+  height: 90px;
+  border-radius: 15px;
+  background-color: rgba($color: $background-color, $alpha: 0.4);
   @include flexCenter(row, flex-start, center);
+  padding: 9px;
   &__image-container {
     width: 70px;
     height: 70px;
