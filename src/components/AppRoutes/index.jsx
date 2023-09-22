@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from '../Layout'
 import Home from '../Home'
-import PlantDetail from '../../pages/PlantDetail'
+import BookDetail from '../../pages/BookDetail'
 import UserDetail from '../../pages/UserDetail'
 import SignIn from '../../pages/SignIn'
 import SignUp from '../../pages/SignUp'
@@ -15,10 +15,10 @@ const AppRoutes = () => {
       <Route path='sign-in' element={<SignIn />} />
       <Route path='sign-up' element={<SignUp />} />
       <Route path='*' element={<NotFound />} />
+      <Route path='book-detail' element={<BookDetail />} />
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='home' element={<Home />} />
-        <Route path='plant-detail' element={<PlantDetail />} />
         <Route path='user-detail' element={<UserDetail />} />
       </Route>
     </Routes>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import hero from '../../assets/images/book-wallpaper.jpg'
+import hero from '../../assets/images/book-cover.jpg'
+// import hero from '../../assets/images/book-wallpaper.jpg'
 import './styles.scss'
 
 const GetStarted = () => {

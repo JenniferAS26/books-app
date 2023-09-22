@@ -10,7 +10,7 @@
     @include flexCenter(row, flex-end, flex-start);
     position: relative;
     &--title {
-      @include titleStyle(center, absolute, calc(50% - 112px / 2), 80px, 1, $dark-color, 3.6rem, 1px);
+      @include titleStyle(center, absolute, calc(50% - 112px / 2), 80px, 1, $text-color, 3.6rem, 1px);
       font-weight: $semibold-weight;
     }
     &--text {
@@ -26,12 +26,12 @@
     justify-content: center;
     justify-items: center;
     &--input {
-      @include inputStyle(350px, 60px, $dark-color, 1.8rem, 1px, $greyish-color, $dark-color, 1.5px);
+      @include inputStyle(350px, 60px, $text-color, 1.8rem, 1px, $greyish-color, $text-color, 1.5px);
       border-radius: 10px;
       background-color: rgba($color: $background-color, $alpha: 0.3);
     }
     &--button {
-      @include buttonStyle(220px, 60px, 10px, $dark-color, $background-color, 2.4rem);
+      @include buttonStyle(220px, 60px, 10px, $text-color, $background-color, 2.4rem);
       letter-spacing: 1px;
     }
   }

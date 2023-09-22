@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.book-detail-container {
+  width: 100%;
+  height: 100%;
+  // border: 3px solid greenyellow;
+  display: grid;
+  grid-template-rows: 550px 313px;
+  &__top {
+    width: 100%;
+    height: 100%;
+    background: $palet-color-7;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
+}

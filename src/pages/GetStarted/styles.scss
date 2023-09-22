@@ -23,15 +23,15 @@
     }
   }
   &__main-title {
-    @include titleStyle(center, relative, 0, 0, 1, $dark-color, 4.5rem, 1px);
+    @include titleStyle(center, relative, 0, 0, 1, $text-color, 4.5rem, 1px);
     line-height: 1;
     font-weight: $semibold-weight;
     padding: 0 30px;
-    align-self: center;
-    margin-bottom: 200px
+    align-self: start;
+    margin-top: 130px
   }
   &__button {
-    @include buttonStyle(200px, 70px, 20px, $dark-color, $background-color, 2.4rem);
+    @include buttonStyle(200px, 70px, 20px, $text-color, $background-color, 2.4rem);
     letter-spacing: 1px;
     align-self: center;
     justify-self: center;
