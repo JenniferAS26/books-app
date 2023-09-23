@@ -7,11 +7,21 @@ const BookGallery = ({ children }) => {
   }
   return (
     <section className='book-gallery-container'>
-      <ul className='book-gallery-container__list'>
-        <li className='book-gallery-container__list--options'>Popular</li>
+      <div className='book-gallery-container__list'>
+        {/* <li className='book-gallery-container__list--options'>Popular</li>
         <li className='book-gallery-container__list--options'>Favorites</li>
-        <li className='book-gallery-container__list--options'>Recomended</li>
-      </ul>
+        <li className='book-gallery-container__list--options'>Recomended</li> */}
+        <div className='book-gallery-container__list--options'>
+          <label htmlFor="">Filtrar por paginas</label>
+          <input type="range" name="" id="" />
+        </div>
+        <div className='book-gallery-container__list--options'>
+          <label htmlFor="">Filtrar por genero</label>
+          <select name="" id="">
+            <option value="">Todas</option>p
+          </select>
+        </div>
+      </div>
       <div className='book-gallery-container__book-card-container'>
         {children}
       </div>

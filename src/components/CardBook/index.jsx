@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import bookImage from '../../assets/images/book-card-image.jpeg'
 import './styles.scss'
 
-const CardBook = () => {
+const CardBook = ({ data }) => {
   const navigate = useNavigate()
 
   return (
@@ -10,9 +9,12 @@ const CardBook = () => {
       className='card-book-container'
       onClick={() => navigate('/book-detail')}
     >
-      <img className='card-book-container__image' src={bookImage} alt='book poster' />
-      <p className='card-book-container__text'>Author name</p>
-      <h2 className='card-book-container__title'>Book name</h2>
+      <img 
+        className='card-book-container__image' 
+        src={data.book.cover} alt={data.book.title} 
+      />
+      <p className='card-book-container__text'>{data.book.author.name}</p>
+      <h2 className='card-book-container__title'>{data.book.title}</h2>
     </div>
   )
 }

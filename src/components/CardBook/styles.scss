@@ -4,7 +4,7 @@
 .card-book-container {
   cursor: pointer;
   width: 170px;
-  height: 240px;
+  height: 260px;
   padding: 9px;
   display: grid;
   place-items: center;
@@ -26,5 +26,9 @@
     font-size: 1.8rem;
     justify-self: start;
     padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    white-space: nowrap;
   }
 }

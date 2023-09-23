@@ -29,6 +29,10 @@
       letter-spacing: 1px;
       align-self: end;
       margin-left: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+      white-space: nowrap;
     }
     &--text {
       font-size: 1.4rem;
