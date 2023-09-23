@@ -4,12 +4,12 @@
 .card-book-container {
   cursor: pointer;
   width: 170px;
-  height: 260px;
+  height: 240px;
   padding: 9px;
   display: grid;
   place-items: center;
   border-radius: 15px;
-  background-color: rgba($color: $background-color, $alpha: 0.4);
+  background-color: rgba($color: $background-color, $alpha: 0.5);
   &__image {
     width: 150px;
     height: 170px;
