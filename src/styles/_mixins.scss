@@ -2,7 +2,7 @@
 
 @mixin containerStyle($bg-color) {
   width: $mobile-max-width;
-  height: $mobile-max-height;
+  height: $mobile-max-height; // 100vh
   border-radius: 20px;
   background-color: $bg-color;
 }

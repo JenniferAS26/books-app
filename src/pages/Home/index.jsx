@@ -10,6 +10,8 @@ import './styles.scss'
 
 const Home = () => {
   const [books, setBooks] = useState([])
+  const [filterResult, setFilterResult] = useState([])
+  const [responseFilter, setResponseFilter] = useState('')
   const [categories, setCategories] = useState([])
   const [rangePages, setRangePages] = useState({
     min: 0,
@@ -22,7 +24,6 @@ const Home = () => {
     getBooks()
       .then((response) => {
         setBooks(response)
-        // console.log(response)
         const categoriesList = getCategories(response)
         setCategories(categoriesList)
         const pagesQuantity = getPagesQuantity(response)
@@ -49,14 +50,27 @@ const Home = () => {
 
   const onFilter = (event) => {
     const { name, value } = event['target']
-    setFilters({
+    const filterParams = {
       ...filters,
       [name]: value
-    })
-    console.log({
-      ...filters,
-      [name]: value
-    })
+    } 
+    setFilters(filterParams)
+
+
+    if (value) {
+      let filtered = [...books]
+      for (const key in filterParams) {
+        if (filterParams[key]) {
+          const filteredResult = key === 'pages' ? filtered.filter(({ book }) => book[key] <= filterParams[key]) : filtered.filter(({ book }) => book[key] == filterParams[key])
+          filtered = [...filteredResult]
+        }
+      }
+      setFilterResult(filtered)
+      setResponseFilter(() => filtered.length ? '' : 'No se encontraron resultados')
+    } else {
+      setFilterResult([])
+      setResponseFilter('Filtros limpiados')
+    }
   }
 
   return (
@@ -81,8 +95,11 @@ const Home = () => {
           )) : <div>Cargando... </div>
         }
       </RecentSearch>
-      <BookGallery categories={categories} rangePages={rangePages} filter={onFilter}>
+      <BookGallery categories={categories} rangePages={rangePages} filter={onFilter} responseFilter={responseFilter}>
         {
+          filterResult.length > 0 ? filterResult.map((book, index) => (
+            <CardBook key={index} data={book} />
+          )) :
           books.length > 0 ? books.map((book, index) => (
             <CardBook key={index} data={book} />
           )) : <div>Cargando... </div>
