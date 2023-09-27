@@ -10,15 +10,54 @@ import './styles.scss'
 
 const Home = () => {
   const [books, setBooks] = useState([])
+  const [categories, setCategories] = useState([])
+  const [rangePages, setRangePages] = useState({
+    min: 0,
+    max: 1500,
+    step : 10
+  })
+  const [filters, setFilters] = useState({})
 
   useEffect(() => {
     getBooks()
       .then((response) => {
         setBooks(response)
-        console.log(response)
+        // console.log(response)
+        const categoriesList = getCategories(response)
+        setCategories(categoriesList)
+        const pagesQuantity = getPagesQuantity(response)
+        setRangePages({
+          ...rangePages,
+          pagesQuantity
+        })
       })
   }, [])
   
+  const getCategories = (bookList) => {
+    const categoryList = bookList.map(({ book }) => book.genre)
+    const categoryItems = new Set(categoryList)
+    return [...categoryItems]
+  }
+
+  const getPagesQuantity = (bookList) => {
+    const ranges = bookList.map(({ book }) => book.pages)
+    return {
+      min: Math.floor(Math.min(...ranges) / 1000) * 1000,
+      max: Math.ceil(Math.max(...ranges) / 1000) * 1000
+    }
+  }
+
+  const onFilter = (event) => {
+    const { name, value } = event['target']
+    setFilters({
+      ...filters,
+      [name]: value
+    })
+    console.log({
+      ...filters,
+      [name]: value
+    })
+  }
 
   return (
     <section className='home'>
@@ -41,9 +80,8 @@ const Home = () => {
             <CardSearch key={index} data={book} />
           )) : <div>Cargando... </div>
         }
-        {/* <CardSearch /> */}
       </RecentSearch>
-      <BookGallery>
+      <BookGallery categories={categories} rangePages={rangePages} filter={onFilter}>
         {
           books.length > 0 ? books.map((book, index) => (
             <CardBook key={index} data={book} />
