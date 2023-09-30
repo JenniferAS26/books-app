@@ -5,14 +5,14 @@ const SignIn = () => {
   const navigate = useNavigate()
 
   const goToHome = () => {
-    navigate('/')
+    navigate('/books-app')
   }
 
   return (
     <section className='sign-in container'>
       <div className='sign-in__header'>
         <h2 className='sign-in__header--title'>Sign in</h2>
-        <Link to='/sign-up'>
+        <Link to='/books-app/sign-up'>
           <span className='sign-in__header--text'>Sign up</span>
         </Link>
       </div>

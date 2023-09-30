@@ -7,7 +7,7 @@ const GetStarted = () => {
   const navigate = useNavigate()
 
   const goTo = () => {
-    navigate('/sign-in')
+    navigate('/books-app/sign-in')
   }
 
   return (

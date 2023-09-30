@@ -11,9 +11,9 @@ import NotFound from '../../pages/NotFound'
 const AppRoutes = () => {
   return (<>
     <Routes>
-      <Route path='get-started' element={<GetStarted />} />
-      <Route path='sign-in' element={<SignIn />} />
-      <Route path='sign-up' element={<SignUp />} />
+      <Route path='/books-app/get-started' element={<GetStarted />} />
+      <Route path='/books-app/sign-in' element={<SignIn />} />
+      <Route path='/books-app/sign-up' element={<SignUp />} />
       <Route path='*' element={<NotFound />} />
       <Route path='book-detail' element={<BookDetail />} />
       <Route element={<Layout />}>

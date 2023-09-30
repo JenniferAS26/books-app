@@ -7,7 +7,7 @@ const SignUp = () => {
     <section className='sign-in container'>
       <div className='sign-in__header'>
         <h2 className='sign-in__header--title'>Sign up</h2>
-        <Link to='/sign-in'>
+        <Link to='/books-app/sign-in'>
           <span className='sign-in__header--text'>Sign in</span>
         </Link>
       </div>
