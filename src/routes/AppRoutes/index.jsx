@@ -7,19 +7,24 @@ import SignIn from '../../pages/SignIn'
 import SignUp from '../../pages/SignUp'
 import GetStarted from '../../pages/GetStarted'
 import NotFound from '../../pages/NotFound'
+import PrivateRoutes from '../PrivateRoutes'
+import PublicRoutes from '../PublicRoutes'
 
 const AppRoutes = () => {
   return (<>
     <Routes>
-      <Route path='/books-app/get-started' element={<GetStarted />} />
-      <Route path='/books-app/sign-in' element={<SignIn />} />
-      <Route path='/books-app/sign-up' element={<SignUp />} />
-      <Route path='*' element={<NotFound />} />
-      <Route path='book-detail' element={<BookDetail />} />
       <Route element={<Layout />}>
-        <Route path='/books-app' element={<Home />} />
-        <Route path='home' element={<Home />} />
-        <Route path='user-detail' element={<UserDetail />} />
+        <Route element={<PrivateRoutes isAuthenticate={true} />}>
+          <Route index element={<Home />} />
+          <Route path='user-detail' element={<UserDetail />} />
+          <Route path='book-detail' element={<BookDetail />} />
+        </Route>
+        <Route element={<PublicRoutes isAuthenticate={true} />} >
+          <Route path='/get-started' element={<GetStarted />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='*' element={<NotFound />} />
+        </Route>
       </Route>
     </Routes>
   </>)

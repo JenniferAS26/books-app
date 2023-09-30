@@ -7,18 +7,20 @@ import { LuSearch } from 'react-icons/lu'
 import CardBook from '../../components/CardBook'
 import { getBooks } from '../../services/bookService'
 import './styles.scss'
+import useFilter from '../../hooks/useFilter'
 
 const Home = () => {
   const [books, setBooks] = useState([])
-  const [filterResult, setFilterResult] = useState([])
-  const [responseFilter, setResponseFilter] = useState('')
+  const { filterResult, responseFilter, handleFilter } = useFilter()
+  // const [filterResult, setFilterResult] = useState([])
+  // const [responseFilter, setResponseFilter] = useState('')
   const [categories, setCategories] = useState([])
   const [rangePages, setRangePages] = useState({
     min: 0,
     max: 1500,
     step : 10
   })
-  const [filters, setFilters] = useState({})
+  // const [filters, setFilters] = useState({})
 
   useEffect(() => {
     getBooks()
@@ -48,30 +50,32 @@ const Home = () => {
     }
   }
 
-  const onFilter = (event) => {
-    const { name, value } = event['target']
-    const filterParams = {
-      ...filters,
-      [name]: value
-    } 
-    setFilters(filterParams)
+  const onFilter = (event) => handleFilter(event, books)
+
+  // const onFilter = (event) => {
+  //   const { name, value } = event['target']
+  //   const filterParams = {
+  //     ...filters,
+  //     [name]: value
+  //   } 
+  //   setFilters(filterParams)
 
 
-    if (value) {
-      let filtered = [...books]
-      for (const key in filterParams) {
-        if (filterParams[key]) {
-          const filteredResult = key === 'pages' ? filtered.filter(({ book }) => book[key] <= filterParams[key]) : filtered.filter(({ book }) => book[key] == filterParams[key])
-          filtered = [...filteredResult]
-        }
-      }
-      setFilterResult(filtered)
-      setResponseFilter(() => filtered.length ? '' : 'No se encontraron resultados')
-    } else {
-      setFilterResult([])
-      setResponseFilter('Filtros limpiados')
-    }
-  }
+  //   if (value) {
+  //     let filtered = [...books]
+  //     for (const key in filterParams) {
+  //       if (filterParams[key]) {
+  //         const filteredResult = key === 'pages' ? filtered.filter(({ book }) => book[key] <= filterParams[key]) : filtered.filter(({ book }) => book[key] == filterParams[key])
+  //         filtered = [...filteredResult]
+  //       }
+  //     }
+  //     setFilterResult(filtered)
+  //     setResponseFilter(() => filtered.length ? '' : 'No se encontraron resultados')
+  //   } else {
+  //     setFilterResult([])
+  //     setResponseFilter('Filtros limpiados')
+  //   }
+  // }
 
   return (
     <section className='home'>

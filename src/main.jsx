@@ -4,7 +4,7 @@ import AppRoutes from './routes/AppRoutes'
 import './styles/global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename='/books-app'>
     <AppRoutes />
   </BrowserRouter>,
 )
