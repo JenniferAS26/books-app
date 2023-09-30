@@ -19,12 +19,12 @@ const AppRoutes = () => {
           <Route path='user-detail' element={<UserDetail />} />
           <Route path='book-detail' element={<BookDetail />} />
         </Route>
-        <Route element={<PublicRoutes isAuthenticate={true} />} >
-          <Route path='/get-started' element={<GetStarted />} />
-          <Route path='/sign-in' element={<SignIn />} />
-          <Route path='/sign-up' element={<SignUp />} />
-          <Route path='*' element={<NotFound />} />
-        </Route>
+      </Route>
+      <Route element={<PublicRoutes isAuthenticate={true} />} >
+        <Route path='/get-started' element={<GetStarted />} />
+        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
   </>)
