@@ -1,6 +1,7 @@
 import { AiFillHome, AiOutlineHeart, AiOutlineEdit, AiOutlineUser } from 'react-icons/ai'
 import './styles.scss'
 import { NavLink } from 'react-router-dom'
+import { AppContext } from '../../routes/AppRoutes'
 
 const Navbar = () => {
   const links = [
@@ -33,6 +34,7 @@ const Navbar = () => {
       className: 'user'
     },
   ]
+  // const { isUserLogged } = useContext(AppContext)
 
   return (
     <footer className="footer">
